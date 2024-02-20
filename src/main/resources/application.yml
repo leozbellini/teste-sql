@@ -1,0 +1,20 @@
+server:
+  servlet:
+    context-path: /teste-sql
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql:///teste-db
+    username: postgres
+    password: teste1234
+    hikari:
+      data-source-properties:
+        socketFactory: com.google.cloud.sql.postgres.SocketFactory
+        cloudSqlInstance: teste-java-sql:us-central1:teste-db
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
